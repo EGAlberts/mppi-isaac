@@ -19,11 +19,14 @@ This project requires the source code of IsaacGym inside the folder
 `thirdparty`. Download it from https://developer.nvidia.com/isaac-gym, extract it, and place
 it in `mppi-isaac/thirdparty`. Then you can proceed with the installation described below. 
 
+*NOTE: To use the GPU pipeline (default) you need an NVIDIA graphics card. If you do not have one, you can use the CPU pipeline, with fewer samples.*
 
 ## Dockerized
-If you don't have Ubuntu 20 there is no standard support for Isaac Gym neither the version of Python this repository relies on. To solve this, you can acquire Isaac Gym in the ways stated already in this README eslewhere and proceed with instructions below:
 
-*NOTE: To use the GPU pipeline (default) you need an NVIDIA graphics card. If you do not have one, you can use the CPU pipeline, with fewer samples.*
+Prerequisites:
+1. Docker
+2. Nvidia container toolkit
+If you don't have Ubuntu 20 there is no standard support for Isaac Gym neither the version of Python this repository relies on. To solve this, you can acquire Isaac Gym in the ways stated already in this README eslewhere and proceed with instructions below:
 
 1. Instead of placing isaac gym inside /thirdparty, extract it to a folder on your non-Ubuntu 20 system. Then, inside the docker folder inside it, run the build.sh script to create a docker container with Isaac Gym inside. 
 2. Use ./run.sh to run the container, if you'd like to use the GUI through xhost add anything after the ./run.sh e.g. ```bash ./run.sh aaaa ```, works.
