@@ -14,11 +14,23 @@ If you found this repository useful, please consider citing the associated paper
 
 # Installation
 
-*NOTE: To use the GPU pipeline (default) you need an NVIDIA graphics card. If you do not have one, you can use the CPU pipeline, with fewer samples.*
 
 This project requires the source code of IsaacGym inside the folder
 `thirdparty`. Download it from https://developer.nvidia.com/isaac-gym, extract it, and place
 it in `mppi-isaac/thirdparty`. Then you can proceed with the installation described below. 
+
+
+## Dockerized
+If you don't have Ubuntu 20 there is no standard support for Isaac Gym neither the version of Python this repository relies on. To solve this, you can acquire Isaac Gym in the ways stated already in this README eslewhere and proceed with instructions below:
+
+*NOTE: To use the GPU pipeline (default) you need an NVIDIA graphics card. If you do not have one, you can use the CPU pipeline, with fewer samples.*
+
+1. Instead of placing isaac gym inside /thirdparty, extract it to a folder on your non-Ubuntu 20 system. Then, inside the docker folder inside it, run the build.sh script to create a docker container with Isaac Gym inside. 
+2. Use ./run.sh to run the container, if you'd like to use the GUI through xhost add anything after the ./run.sh e.g. ```bash ./run.sh aaaa ```, works.
+3. Within the container, navigate to home ```bash cd ~ ``` or anywhere else you don't need admin priviliges, and then clone this repository.
+4. Once you have done so, create a symbolic link to the version of isaacgym installed within the container already, if you cd into the thirdparty folder that command looks something like this: ```bash ln -s /opt/isaacgym ./isaacgym```.
+5. Follow the other instructions in this README to install poetry, install the venv of the repo, and then run the examples.
+
 
 ## Virtual environment (advised)
 You can install the necessary dependencies using [poetry](https://python-poetry.org/docs/) virtual environment. After installing poetry, move into `mppi-isaac` and run
